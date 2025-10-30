@@ -43,6 +43,6 @@ public class DTOFuncionario {
     }
 
     public void setId_pessoa(int id_pessoa) {
-        this.id_pessoa = id_pessoa;
+        this.id_pessoa = id_pessoa; /**/
     }
 }
