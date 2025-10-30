@@ -1,26 +1,17 @@
-package org.acme.Model;
+package org.acme.Model.DTOs.Funcionarios;
 
-public class ModelFuncionario {
-    private int id_funcionario;
+public class DTOFuncionario {
     private String setor;
     private String cargo;
     private String st_credencial;
     private int id_pessoa;
 
-    public ModelFuncionario(int id_funcionario, String setor, String cargo, String st_credencial, int id_pessoa) {
-        this.id_funcionario = id_funcionario;
+
+    public DTOFuncionario(String setor, String cargo, String st_credencial, int id_pessoa) {
         this.setor = setor;
         this.cargo = cargo;
         this.st_credencial = st_credencial;
         this.id_pessoa = id_pessoa;
-    }
-
-    public int getId_funcionario() {
-        return id_funcionario;
-    }
-
-    public void setId_funcionario(int id_funcionario) {
-        this.id_funcionario = id_funcionario;
     }
 
     public String getSetor() {

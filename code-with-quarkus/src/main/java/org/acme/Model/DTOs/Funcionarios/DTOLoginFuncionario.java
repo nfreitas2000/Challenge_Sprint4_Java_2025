@@ -1,24 +1,14 @@
-package org.acme.Model;
+package org.acme.Model.DTOs.Funcionarios;
 
-public class ModelLoginFuncionario {
-    private int id_login_dashtech;
+public class DTOLoginFuncionario {
     private String user_dashboard;
     private String password_dashtech;
     private int id_funcionario;
 
-    public ModelLoginFuncionario(int id_login_dashtech, String user_dashboard, String password_dashtech, int id_funcionario) {
-        this.id_login_dashtech = id_login_dashtech;
+    public DTOLoginFuncionario(String user_dashboard, String password_dashtech, int id_funcionario) {
         this.user_dashboard = user_dashboard;
         this.password_dashtech = password_dashtech;
         this.id_funcionario = id_funcionario;
-    }
-
-    public int getId_login_dashtech() {
-        return id_login_dashtech;
-    }
-
-    public void setId_login_dashtech(int id_login_dashtech) {
-        this.id_login_dashtech = id_login_dashtech;
     }
 
     public String getUser_dashboard() {

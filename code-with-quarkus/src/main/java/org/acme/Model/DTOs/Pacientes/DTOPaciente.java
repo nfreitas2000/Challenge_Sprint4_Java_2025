@@ -1,28 +1,18 @@
-package org.acme.Model;
+package org.acme.Model.DTOs.Pacientes;
 
-public class ModelPaciente {
-    private int id_paciente;
+public class DTOPaciente {
     private String historico_medico;
     private String grupo_sanguineo;
     private double altura;
     private double peso;
     private int id_pessoa;
 
-    public ModelPaciente(int id_paciente, String historico_medico, String grupo_sanguineo, double altura, double peso, int id_pessoa) {
-        this.id_paciente = id_paciente;
+    public DTOPaciente(String historico_medico, String grupo_sanguineo, double altura, double peso, int id_pessoa) {
         this.historico_medico = historico_medico;
         this.grupo_sanguineo = grupo_sanguineo;
         this.altura = altura;
         this.peso = peso;
         this.id_pessoa = id_pessoa;
-    }
-
-    public int getId_paciente() {
-        return id_paciente;
-    }
-
-    public void setId_paciente(int id_paciente) {
-        this.id_paciente = id_paciente;
     }
 
     public String getHistorico_medico() {

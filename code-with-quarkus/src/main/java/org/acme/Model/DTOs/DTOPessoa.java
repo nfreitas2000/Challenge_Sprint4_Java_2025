@@ -1,7 +1,6 @@
-package org.acme.Model;
+package org.acme.Model.DTOs;
 
-public class ModelPessoa {
-    private int id_pessoa;
+public class DTOPessoa {
     private String nm_pessoa;
     private String cpf;
     private String rg;
@@ -10,8 +9,7 @@ public class ModelPessoa {
     private String estado_civil;
     private String escolaridade;
 
-    public ModelPessoa(int id_pessoa, String nm_pessoa, String cpf, String rg, String dt_nascimento, String sx_pessoa, String estado_civil, String escolaridade) {
-        this.id_pessoa = id_pessoa;
+    public DTOPessoa(String nm_pessoa, String cpf, String rg, String dt_nascimento, String sx_pessoa, String estado_civil, String escolaridade) {
         this.nm_pessoa = nm_pessoa;
         this.cpf = cpf;
         this.rg = rg;
@@ -19,14 +17,6 @@ public class ModelPessoa {
         this.sx_pessoa = sx_pessoa;
         this.estado_civil = estado_civil;
         this.escolaridade = escolaridade;
-    }
-
-    public int getId_pessoa() {
-        return id_pessoa;
-    }
-
-    public void setId_pessoa(int id_pessoa) {
-        this.id_pessoa = id_pessoa;
     }
 
     public String getNm_pessoa() {

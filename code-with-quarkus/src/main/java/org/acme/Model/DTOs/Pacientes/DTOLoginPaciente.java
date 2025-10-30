@@ -1,24 +1,14 @@
-package org.acme.Model;
+package org.acme.Model.DTOs.Pacientes;
 
-public class ModelLoginPaciente {
-    private int id_login_paciente;
+public class DTOLoginPaciente {
     private String nm_usuario;
     private String senha;
     private int id_paciente;
 
-    public ModelLoginPaciente(int id_login_paciente, String nm_usuario, String senha, int id_paciente) {
-        this.id_login_paciente = id_login_paciente;
+    public DTOLoginPaciente(String nm_usuario, String senha, int id_paciente) {
         this.nm_usuario = nm_usuario;
         this.senha = senha;
         this.id_paciente = id_paciente;
-    }
-
-    public int getId_login_paciente() {
-        return id_login_paciente;
-    }
-
-    public void setId_login_paciente(int id_login_paciente) {
-        this.id_login_paciente = id_login_paciente;
     }
 
     public String getNm_usuario() {
