@@ -9,7 +9,7 @@ public class GreetingResource {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello(String oi) {
-        return "Hello from Quarkus REST" + oi;
+    public String hello() {
+        return "oi";
     }
 }
