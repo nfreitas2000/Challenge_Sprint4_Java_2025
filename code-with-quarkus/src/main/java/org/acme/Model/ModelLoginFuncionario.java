@@ -4,13 +4,13 @@ public class ModelLoginFuncionario {
     private int id_login_dashtech;
     private String user_dashboard;
     private String password_dashtech;
-    private int id_funcionario;
+    private ModelFuncionario funcionario;
 
-    public ModelLoginFuncionario(int id_login_dashtech, String user_dashboard, String password_dashtech, int id_funcionario) {
+    public ModelLoginFuncionario(int id_login_dashtech, String user_dashboard, String password_dashtech, ModelFuncionario funcionario) {
         this.id_login_dashtech = id_login_dashtech;
         this.user_dashboard = user_dashboard;
         this.password_dashtech = password_dashtech;
-        this.id_funcionario = id_funcionario;
+        this.funcionario = funcionario;
     }
 
     public int getId_login_dashtech() {
@@ -37,11 +37,11 @@ public class ModelLoginFuncionario {
         this.password_dashtech = password_dashtech;
     }
 
-    public int getId_funcionario() {
-        return id_funcionario;
+    public ModelFuncionario getFuncionario() {
+        return funcionario;
     }
 
-    public void setId_funcionario(int id_funcionario) {
-        this.id_funcionario = id_funcionario;
+    public void setFuncionario(ModelFuncionario funcionario) {
+        this.funcionario = funcionario;
     }
 }

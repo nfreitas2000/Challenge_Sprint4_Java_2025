@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.acme.Model.DTOs.Pacientes.DTOPaciente;
 import org.acme.Model.ModelPaciente;
+import org.acme.Model.ModelPessoa;
 
 import javax.sql.DataSource;
 
@@ -29,7 +30,7 @@ public class RepositoryPaciente {
             ps.setString(2, paciente.getGrupo_sanguineo());
             ps.setDouble(3, paciente.getAltura());
             ps.setDouble(4, paciente.getPeso());
-            ps.setInt(5, paciente.getId_pessoa());
+            ps.setInt(5, paciente.getPessoa().getId_pessoa());
 
             ps.executeUpdate();
         }
@@ -41,17 +42,23 @@ public class RepositoryPaciente {
             PreparedStatement ps = con.prepareStatement(sql) ){
             ResultSet rs = ps.executeQuery();//lista
             List<ModelPaciente> listaPacientes = new ArrayList<>();
+            List<ModelPessoa> listaPessoas = new RepositoryPessoa().listar();
             while(rs.next()){
-                ModelPaciente modelPaciente = new ModelPaciente
-                        (
-                                rs.getInt(1),
-                                rs.getString(2),
-                                rs.getString(3),
-                                rs.getDouble(4),
-                                rs.getDouble(5),
-                                rs.getInt(6)
-                        );
-                listaPacientes.add(modelPaciente);
+                for (ModelPessoa pessoa : listaPessoas){
+                    if (pessoa.getId_pessoa() == rs.getInt(6)){
+                        ModelPaciente modelPaciente = new ModelPaciente
+                                (
+                                        rs.getInt(1),
+                                        rs.getString(2),
+                                        rs.getString(3),
+                                        rs.getDouble(4),
+                                        rs.getDouble(5),
+                                        pessoa
+                                );
+                        listaPacientes.add(modelPaciente);
+                    }
+                }
+
             }
             return listaPacientes;
         }

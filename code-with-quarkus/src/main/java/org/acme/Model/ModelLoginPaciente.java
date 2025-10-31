@@ -4,13 +4,13 @@ public class ModelLoginPaciente {
     private int id_login_paciente;
     private String nm_usuario;
     private String senha;
-    private int id_paciente;
+    private ModelPaciente paciente;
 
-    public ModelLoginPaciente(int id_login_paciente, String nm_usuario, String senha, int id_paciente) {
+    public ModelLoginPaciente(int id_login_paciente, String nm_usuario, String senha, ModelPaciente paciente) {
         this.id_login_paciente = id_login_paciente;
         this.nm_usuario = nm_usuario;
         this.senha = senha;
-        this.id_paciente = id_paciente;
+        this.paciente = paciente;
     }
 
     public int getId_login_paciente() {
@@ -37,11 +37,11 @@ public class ModelLoginPaciente {
         this.senha = senha;
     }
 
-    public int getId_paciente() {
-        return id_paciente;
+    public ModelPaciente getPaciente() {
+        return paciente;
     }
 
-    public void setId_paciente(int id_paciente) {
-        this.id_paciente = id_paciente;
+    public void setPaciente(ModelPaciente paciente) {
+        this.paciente = paciente;
     }
 }

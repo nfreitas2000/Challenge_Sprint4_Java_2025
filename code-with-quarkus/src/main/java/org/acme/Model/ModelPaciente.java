@@ -6,15 +6,15 @@ public class ModelPaciente {
     private String grupo_sanguineo;
     private double altura;
     private double peso;
-    private int id_pessoa;
+    private ModelPessoa pessoa;
 
-    public ModelPaciente(int id_paciente, String historico_medico, String grupo_sanguineo, double altura, double peso, int id_pessoa) {
+    public ModelPaciente(int id_paciente, String historico_medico, String grupo_sanguineo, double altura, double peso, ModelPessoa pessoa) {
         this.id_paciente = id_paciente;
         this.historico_medico = historico_medico;
         this.grupo_sanguineo = grupo_sanguineo;
         this.altura = altura;
         this.peso = peso;
-        this.id_pessoa = id_pessoa;
+        this.pessoa = pessoa;
     }
 
     public int getId_paciente() {
@@ -57,11 +57,11 @@ public class ModelPaciente {
         this.peso = peso;
     }
 
-    public int getId_pessoa() {
-        return id_pessoa;
+    public ModelPessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setId_pessoa(int id_pessoa) {
-        this.id_pessoa = id_pessoa;
+    public void setPessoa(ModelPessoa pessoa) {
+        this.pessoa = pessoa;
     }
 }

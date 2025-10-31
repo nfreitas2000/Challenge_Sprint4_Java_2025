@@ -5,14 +5,14 @@ public class ModelFuncionario {
     private String setor;
     private String cargo;
     private String st_credencial;
-    private int id_pessoa;
+    private ModelPessoa pessoa;
 
-    public ModelFuncionario(int id_funcionario, String setor, String cargo, String st_credencial, int id_pessoa) {
+    public ModelFuncionario(int id_funcionario, String setor, String cargo, String st_credencial, ModelPessoa pessoa) {
         this.id_funcionario = id_funcionario;
         this.setor = setor;
         this.cargo = cargo;
         this.st_credencial = st_credencial;
-        this.id_pessoa = id_pessoa;
+        this.pessoa = pessoa;
     }
 
     public int getId_funcionario() {
@@ -47,11 +47,11 @@ public class ModelFuncionario {
         this.st_credencial = st_credencial;
     }
 
-    public int getId_pessoa() {
-        return id_pessoa;
+    public ModelPessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setId_pessoa(int id_pessoa) {
-        this.id_pessoa = id_pessoa;
+    public void setPessoa(ModelPessoa pessoa) {
+        this.pessoa = pessoa;
     }
 }

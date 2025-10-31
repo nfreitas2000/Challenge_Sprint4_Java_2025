@@ -1,14 +1,16 @@
 package org.acme.Model.DTOs.Pacientes;
 
+import org.acme.Model.ModelPaciente;
+
 public class DTOLoginPaciente {
     private String nm_usuario;
     private String senha;
-    private int id_paciente;
+    private ModelPaciente paciente;
 
-    public DTOLoginPaciente(String nm_usuario, String senha, int id_paciente) {
+    public DTOLoginPaciente(String nm_usuario, String senha, ModelPaciente paciente) {
         this.nm_usuario = nm_usuario;
         this.senha = senha;
-        this.id_paciente = id_paciente;
+        this.paciente = paciente;
     }
 
     public String getNm_usuario() {
@@ -27,11 +29,11 @@ public class DTOLoginPaciente {
         this.senha = senha;
     }
 
-    public int getId_paciente() {
-        return id_paciente;
+    public ModelPaciente getPaciente() {
+        return paciente;
     }
 
-    public void setId_paciente(int id_paciente) {
-        this.id_paciente = id_paciente;
+    public void setPaciente(ModelPaciente paciente) {
+        this.paciente = paciente;
     }
 }

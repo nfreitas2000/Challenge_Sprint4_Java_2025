@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.acme.Model.DTOs.Pacientes.DTOLoginPaciente;
 import org.acme.Model.ModelLoginPaciente;
+import org.acme.Model.ModelPaciente;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -25,7 +26,7 @@ public class RepositoryContaPaciente {
         {
             ps.setString(1, loginPaciente.getNm_usuario());
             ps.setString(2, loginPaciente.getSenha());
-            ps.setInt(3, loginPaciente.getId_paciente());
+            ps.setInt(3, loginPaciente.getPaciente().getId_paciente());
 
             ps.executeUpdate();
         }
@@ -37,15 +38,21 @@ public class RepositoryContaPaciente {
             PreparedStatement ps = con.prepareStatement(sql) ){
             ResultSet rs = ps.executeQuery();
             List<ModelLoginPaciente> listaLoginPacientes = new ArrayList<>();
+            List<ModelPaciente> listaPacientes = new RepositoryPaciente().listar();
             while(rs.next()){
-                ModelLoginPaciente modelLoginPaciente = new ModelLoginPaciente
-                        (
-                                rs.getInt(1),
-                                rs.getString(2),
-                                rs.getString(3),
-                                rs.getInt(4)
-                        );
-                listaLoginPacientes.add(modelLoginPaciente);
+                for (ModelPaciente paciente : listaPacientes){
+                    if (paciente.getId_paciente() == rs.getInt(4)){
+                        ModelLoginPaciente modelLoginPaciente = new ModelLoginPaciente
+                                (
+                                        rs.getInt(1),
+                                        rs.getString(2),
+                                        rs.getString(3),
+                                        paciente
+                                );
+                        listaLoginPacientes.add(modelLoginPaciente);
+                    }
+                }
+
             }
             return listaLoginPacientes;
         }

@@ -3,12 +3,12 @@ package org.acme.Model.DTOs.Funcionarios;
 public class DTOLoginFuncionario {
     private String user_dashboard;
     private String password_dashtech;
-    private int id_funcionario;
+    private DTOFuncionario funcionario;
 
-    public DTOLoginFuncionario(String user_dashboard, String password_dashtech, int id_funcionario) {
+    public DTOLoginFuncionario(String user_dashboard, String password_dashtech, DTOFuncionario funcionario) {
         this.user_dashboard = user_dashboard;
         this.password_dashtech = password_dashtech;
-        this.id_funcionario = id_funcionario;
+        this.funcionario = funcionario;
     }
 
     public String getUser_dashboard() {
@@ -27,11 +27,11 @@ public class DTOLoginFuncionario {
         this.password_dashtech = password_dashtech;
     }
 
-    public int getId_funcionario() {
-        return id_funcionario;
+    public DTOFuncionario getFuncionario() {
+        return funcionario;
     }
 
-    public void setId_funcionario(int id_funcionario) {
-        this.id_funcionario = id_funcionario;
+    public void setFuncionario(DTOFuncionario funcionario) {
+        this.funcionario = funcionario;
     }
 }
