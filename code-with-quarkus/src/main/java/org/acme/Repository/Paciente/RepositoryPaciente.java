@@ -1,10 +1,11 @@
-package org.acme.Repository;
+package org.acme.Repository.Paciente;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.acme.Model.DTOs.Pacientes.DTOPaciente;
 import org.acme.Model.ModelPaciente;
 import org.acme.Model.ModelPessoa;
+import org.acme.Repository.RepositoryPessoa;
 
 import javax.sql.DataSource;
 
@@ -62,5 +63,19 @@ public class RepositoryPaciente {
             }
             return listaPacientes;
         }
+    }
+
+    public ModelPaciente recuperarPaciente (DTOPaciente DTOpaciente) throws SQLException {
+        String sql = "SELECT * FROM T_HCFMUSP_PACIENTE WHERE id_pessoa = ?";
+        ModelPaciente paciente = null;
+        try (Connection con = dataSource.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, DTOpaciente.getPessoa().getId_pessoa());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                paciente = new ModelPaciente(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5), DTOpaciente.getPessoa());
+            }
+        }
+        return paciente;
     }
 }

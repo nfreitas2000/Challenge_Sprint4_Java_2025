@@ -1,37 +1,40 @@
 package org.acme.Model.DTOs.Funcionarios;
 
-public class DTOLoginFuncionario {
-    private String user_dashboard;
-    private String password_dashtech;
-    private DTOFuncionario funcionario;
+import io.vertx.codegen.Model;
+import org.acme.Model.ModelFuncionario;
 
-    public DTOLoginFuncionario(String user_dashboard, String password_dashtech, DTOFuncionario funcionario) {
-        this.user_dashboard = user_dashboard;
-        this.password_dashtech = password_dashtech;
+public class DTOLoginFuncionario {
+    private String nm_usuario;
+    private String senha;
+    private ModelFuncionario funcionario;
+
+    public DTOLoginFuncionario(String nm_usuario, String senha, ModelFuncionario funcionario) {
+        this.nm_usuario = nm_usuario;
+        this.senha = senha;
         this.funcionario = funcionario;
     }
 
-    public String getUser_dashboard() {
-        return user_dashboard;
+    public String getNm_usuario() {
+        return nm_usuario;
     }
 
-    public void setUser_dashboard(String user_dashboard) {
-        this.user_dashboard = user_dashboard;
+    public void setNm_usuario(String nm_usuario) {
+        this.nm_usuario = nm_usuario;
     }
 
-    public String getPassword_dashtech() {
-        return password_dashtech;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setPassword_dashtech(String password_dashtech) {
-        this.password_dashtech = password_dashtech;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public DTOFuncionario getFuncionario() {
+    public ModelFuncionario getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(DTOFuncionario funcionario) {
+    public void setFuncionario(ModelFuncionario funcionario) {
         this.funcionario = funcionario;
     }
 }

@@ -1,4 +1,4 @@
-package org.acme.Repository;
+package org.acme.Repository.Paciente;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

@@ -62,4 +62,17 @@ public class RepositoryPessoa {
             return listaPessoas;
         }
     }
+    public ModelPessoa recuperarPessoa (String cpf) throws SQLException {
+        String sql = "SELECT * FROM T_HCFMUSP_PESSOA WHERE cpf = ?";
+        ModelPessoa pessoa = null;
+        try (Connection con = dataSource.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, cpf);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                pessoa = new ModelPessoa(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+            }
+        }
+        return pessoa;
+    }
 }

@@ -1,15 +1,16 @@
 package org.acme.Model.DTOs.Funcionarios;
 
 import org.acme.Model.DTOs.DTOPessoa;
+import org.acme.Model.ModelPessoa;
 
 public class DTOFuncionario {
     private String setor;
     private String cargo;
     private String st_credencial;
-    private DTOPessoa pessoa;
+    private ModelPessoa pessoa;
 
 
-    public DTOFuncionario(String setor, String cargo, String st_credencial, DTOPessoa pessoa) {
+    public DTOFuncionario(String setor, String cargo, String st_credencial, ModelPessoa pessoa) {
         this.setor = setor;
         this.cargo = cargo;
         this.st_credencial = st_credencial;
@@ -40,11 +41,11 @@ public class DTOFuncionario {
         this.st_credencial = st_credencial;
     }
 
-    public DTOPessoa getPessoa() {
+    public ModelPessoa getPessoa() {
         return pessoa;
     }
 
-    public void setPessoa(DTOPessoa pessoa) {
+    public void setPessoa(ModelPessoa pessoa) {
         this.pessoa = pessoa;
     }
 }

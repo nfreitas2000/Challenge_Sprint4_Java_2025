@@ -16,6 +16,4 @@ public class DTOPacienteCompleto {
 
     public DTOLoginPaciente getLogin() { return login; }
     public void setLogin(DTOLoginPaciente login) { this.login = login; }
-
-
 }
