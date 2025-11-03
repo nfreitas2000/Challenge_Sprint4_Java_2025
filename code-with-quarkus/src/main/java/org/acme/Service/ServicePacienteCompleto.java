@@ -25,9 +25,14 @@ public class ServicePacienteCompleto {
     ServiceLoginPaciente serviceLoginPaciente;
 
     public void criar(DTOPacienteCompleto pacienteCompleto) throws SQLException {
-        if (servicePessoa.validacao(pacienteCompleto.getPessoa())){
+        System.out.println(pacienteCompleto.getPessoa().getNm_pessoa());
+        System.out.println(pacienteCompleto.getPessoa().getNm_pessoa());
+        System.out.println(pacienteCompleto.getPessoa().getNm_pessoa());
+        System.out.println(pacienteCompleto.getPessoa().getNm_pessoa());
+        System.out.println(pacienteCompleto.getPessoa().getNm_pessoa());
+        System.out.println(pacienteCompleto.getPessoa().getNm_pessoa());
 
-        }
+        repositoryPessoa.inserirPessoa(pacienteCompleto.getPessoa());
 
 
 

@@ -1,6 +1,7 @@
 package org.acme.Service;
 
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.acme.Model.DTOs.DTOPessoa;
 import org.acme.Model.DTOs.Pacientes.DTOPaciente;
@@ -8,6 +9,7 @@ import org.acme.Repository.RepositoryPaciente;
 
 import java.sql.SQLException;
 
+@ApplicationScoped
 public class ServicePaciente {
     @Inject
     RepositoryPaciente repositoryPaciente;

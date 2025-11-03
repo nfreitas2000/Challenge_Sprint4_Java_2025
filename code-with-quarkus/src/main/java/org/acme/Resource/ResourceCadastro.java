@@ -17,9 +17,10 @@ public class ResourceCadastro {
     ServicePacienteCompleto servicePacienteCompleto;
 
     @POST
-    public Response criar (DTOPacienteCompleto pacienteCompleto){
+    @Path("/criarContaPaciente")
+    public Response criar (DTOPacienteCompleto dadosCompleto){
         try{
-            servicePacienteCompleto.criar(pacienteCompleto);
+            servicePacienteCompleto.criar(dadosCompleto);
             return Response.status(Response.Status.CREATED)
                     .entity("Criado com Sucesso").build();
 
