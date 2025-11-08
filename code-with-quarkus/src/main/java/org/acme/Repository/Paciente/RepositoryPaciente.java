@@ -105,4 +105,22 @@ public class RepositoryPaciente {
 
         return lista;
     }
+
+    public void removerPaciente(int id) throws SQLException {
+        String sql = "Delete from T_HCFMUSP_PACIENTE where id_paciente = ?";
+
+        try (Connection con = dataSource.getConnection()) {
+            con.setAutoCommit(false);
+
+            try (PreparedStatement st = con.prepareStatement(sql)) {
+                st.setInt(1, id);
+                int funcionou = st.executeUpdate();
+                if (funcionou > 0) {
+                    con.commit();
+                } else {
+                    con.rollback();
+                }
+            }
+        }
+    }
 }

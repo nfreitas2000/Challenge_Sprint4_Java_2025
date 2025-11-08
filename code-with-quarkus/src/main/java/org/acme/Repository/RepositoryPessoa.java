@@ -76,7 +76,21 @@ public class RepositoryPessoa {
         return pessoa;
     }
 
-    public void deletar(int id) {
-        String sql = "DELETE FROM T_HCFMUSP_PESSOA WHERE";
+    public void removerPessoa(int id) throws SQLException {
+        String sql = "Delete from T_HCFMUSP_PESSOA where id_pessoa = ?";
+
+        try (Connection con = dataSource.getConnection()) {
+            con.setAutoCommit(false);
+
+            try (PreparedStatement st = con.prepareStatement(sql)) {
+                st.setInt(1, id);
+                int funcionou = st.executeUpdate();
+                if (funcionou > 0) {
+                    con.commit();
+                } else {
+                    con.rollback();
+                }
+            }
+        }
     }
 }

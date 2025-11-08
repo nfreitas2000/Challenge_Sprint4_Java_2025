@@ -5,12 +5,9 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.acme.Model.DTOs.DTOPacienteFull;
-import org.acme.Model.DTOs.Funcionarios.DTOContaFuncionario;
-import org.acme.Model.DTOs.Pacientes.DTOContaPaciente;
-import org.acme.Model.ModelPaciente;
+import org.acme.Model.DTOs.Pacientes.DTOPacienteDelete;
 import org.acme.Service.AreaFuncionario.ServiceEdicaoPaciente;
-import org.acme.Service.Login.ServiceLoginFuncionario;
-import org.acme.Service.Login.ServiceLoginPaciente;
+
 
 import java.sql.SQLException;
 import java.util.List;
@@ -34,10 +31,44 @@ public class ResourceAreaFuncionario {
     }
 
     @DELETE
-    @Path("deletar/{id}")
-    public Response deletar(@PathParam("id") int idPaciente){
+    @Path("/deletar")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response deletar(DTOPacienteDelete dtoPacienteDelete){
+        try {
+            if (serviceEdicaoPaciente.deletarConta(dtoPacienteDelete.getIdLoginPaciente(), dtoPacienteDelete.getIdPaciente(), dtoPacienteDelete.getIdPessoa())){
+                return Response.status(Response.Status.OK).build();
+            } else {
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
+        } catch (SQLException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).
+                    entity("Erro de Conexão com a Base De Dados").build();
+        }
+    }
 
+    @GET
+    @Path("/recupera-por-id/{id}")
+    public Response recuperaPorId(@PathParam("id") int id){
+        try{
+            DTOPacienteFull pacienteFull = serviceEdicaoPaciente.retornaPorId(id);
+            return Response.status(Response.Status.OK).entity(pacienteFull).build();
+        }catch (SQLException e){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).
+                    entity("Erro de Conexão com a Base De Dados").build();
+        }
+    }
 
+    @PUT
+    @Path("/atualizar-paciente")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response atualizar(DTOPacienteFull pacienteFull){
+        try{
+            serviceEdicaoPaciente.atualizar(pacienteFull);
+            return Response.status(Response.Status.OK).entity(pacienteFull).build();
+        }catch (SQLException e){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).
+                    entity("Erro de Conexão com a Base De Dados").build();
+        }
     }
 
 }
