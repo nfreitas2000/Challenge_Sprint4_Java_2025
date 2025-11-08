@@ -8,8 +8,8 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.acme.Model.DTOs.Funcionarios.DTOContaFuncionario;
 import org.acme.Model.DTOs.Pacientes.DTOContaPaciente;
-import org.acme.Service.Cadastro.Funcionario.ServiceLoginFuncionario;
-import org.acme.Service.Cadastro.Paciente.ServiceLoginPaciente;
+import org.acme.Service.Login.ServiceLoginFuncionario;
+import org.acme.Service.Login.ServiceLoginPaciente;
 
 import java.sql.SQLException;
 

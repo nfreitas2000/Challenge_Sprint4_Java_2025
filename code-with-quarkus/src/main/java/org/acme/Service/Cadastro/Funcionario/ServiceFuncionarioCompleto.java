@@ -3,14 +3,10 @@ package org.acme.Service.Cadastro.Funcionario;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.acme.Model.DTOs.Funcionarios.DTOFuncionarioCompleto;
-import org.acme.Model.DTOs.Pacientes.DTOPacienteCompleto;
 import org.acme.Repository.Funcionario.RepositoryContaFuncionario;
 import org.acme.Repository.Funcionario.RepositoryFuncionario;
-import org.acme.Repository.Paciente.RepositoryContaPaciente;
-import org.acme.Repository.Paciente.RepositoryPaciente;
 import org.acme.Repository.RepositoryPessoa;
-import org.acme.Service.Cadastro.Paciente.ServiceLoginPaciente;
-import org.acme.Service.Cadastro.Paciente.ServicePaciente;
+import org.acme.Service.Login.ServiceLoginFuncionario;
 import org.acme.Service.Cadastro.ServicePessoa;
 
 import java.sql.SQLException;

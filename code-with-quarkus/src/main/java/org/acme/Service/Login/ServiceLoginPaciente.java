@@ -1,12 +1,9 @@
-package org.acme.Service.Cadastro.Paciente;
+package org.acme.Service.Login;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.acme.Model.DTOs.Funcionarios.DTOContaFuncionario;
 import org.acme.Model.DTOs.Pacientes.DTOContaPaciente;
 import org.acme.Model.DTOs.Pacientes.DTOLoginPaciente;
-import org.acme.Model.ModelLoginFuncionario;
-import org.acme.Model.ModelLoginPaciente;
 import org.acme.Repository.Paciente.RepositoryContaPaciente;
 
 import java.sql.SQLException;

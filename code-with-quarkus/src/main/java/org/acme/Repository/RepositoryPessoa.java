@@ -75,4 +75,8 @@ public class RepositoryPessoa {
         }
         return pessoa;
     }
+
+    public void deletar(int id) {
+        String sql = "DELETE FROM T_HCFMUSP_PESSOA WHERE";
+    }
 }

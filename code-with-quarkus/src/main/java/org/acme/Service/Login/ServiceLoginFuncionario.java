@@ -1,10 +1,9 @@
-package org.acme.Service.Cadastro.Funcionario;
+package org.acme.Service.Login;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.acme.Model.DTOs.Funcionarios.DTOContaFuncionario;
 import org.acme.Model.DTOs.Funcionarios.DTOLoginFuncionario;
-import org.acme.Model.ModelLoginFuncionario;
 import org.acme.Repository.Funcionario.RepositoryContaFuncionario;
 
 import java.sql.SQLException;

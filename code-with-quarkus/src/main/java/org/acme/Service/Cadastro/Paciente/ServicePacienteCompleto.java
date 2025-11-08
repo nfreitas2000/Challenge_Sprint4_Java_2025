@@ -7,6 +7,7 @@ import org.acme.Repository.Paciente.RepositoryContaPaciente;
 import org.acme.Repository.Paciente.RepositoryPaciente;
 import org.acme.Repository.RepositoryPessoa;
 import org.acme.Service.Cadastro.ServicePessoa;
+import org.acme.Service.Login.ServiceLoginPaciente;
 
 import java.sql.SQLException;
 

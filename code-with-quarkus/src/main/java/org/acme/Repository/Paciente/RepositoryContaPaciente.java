@@ -34,34 +34,6 @@ public class RepositoryContaPaciente {
         }
     }
 
-    public List<ModelLoginPaciente> listar() throws SQLException {
-        String sql ="Select * from T_HCFMUSP_LOGIN_PACIENTE Order by id_login_paciente";
-        try(
-                Connection con = dataSource.getConnection();
-                PreparedStatement ps = con.prepareStatement(sql)
-        ){
-            ResultSet rs = ps.executeQuery();
-            List<ModelLoginPaciente> listaLoginPacientes = new ArrayList<>();
-            List<ModelPaciente> listaPacientes = new RepositoryPaciente().listar();
-            while(rs.next()){
-                for (ModelPaciente paciente : listaPacientes){
-                    if (paciente.getId_paciente() == rs.getInt(4)){
-                        ModelLoginPaciente modelLoginPaciente = new ModelLoginPaciente
-                                (
-                                        rs.getInt(1),
-                                        rs.getString(2),
-                                        rs.getString(3),
-                                        paciente
-                                );
-                        listaLoginPacientes.add(modelLoginPaciente);
-                    }
-                }
-
-            }
-            return listaLoginPacientes;
-        }
-    }
-
     public List<DTOContaPaciente> listarLogins() throws SQLException {
         String sql ="Select * from T_HCFMUSP_LOGIN_PACIENTE";
         try(
@@ -75,5 +47,9 @@ public class RepositoryContaPaciente {
             }
             return listaLoginPacientes;
         }
+    }
+
+    public void deletar(int id){
+        String sql
     }
 }
