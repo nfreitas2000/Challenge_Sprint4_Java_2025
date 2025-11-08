@@ -9,16 +9,14 @@ import org.acme.Repository.RepositoryPessoa;
 
 import javax.sql.DataSource;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @ApplicationScoped
 public class RepositoryPaciente {
+
     @Inject
     DataSource dataSource;
 
@@ -38,10 +36,12 @@ public class RepositoryPaciente {
     }
 
     public List<ModelPaciente> listar() throws SQLException {
-        String sql ="Select * from T_HCFMUSP_PACIENTE Order by ID";//saída ordenada
-        try(Connection con = dataSource.getConnection();
-            PreparedStatement ps = con.prepareStatement(sql) ){
-            ResultSet rs = ps.executeQuery();//lista
+        String sql = "Select * from T_HCFMUSP_PACIENTE";
+        try(
+                Connection con = dataSource.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql)
+        ){
+            ResultSet rs = ps.executeQuery();
             List<ModelPaciente> listaPacientes = new ArrayList<>();
             List<ModelPessoa> listaPessoas = new RepositoryPessoa().listar();
             while(rs.next()){

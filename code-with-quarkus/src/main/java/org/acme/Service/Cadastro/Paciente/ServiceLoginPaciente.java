@@ -2,10 +2,15 @@ package org.acme.Service.Cadastro.Paciente;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.acme.Model.DTOs.Funcionarios.DTOContaFuncionario;
+import org.acme.Model.DTOs.Pacientes.DTOContaPaciente;
 import org.acme.Model.DTOs.Pacientes.DTOLoginPaciente;
+import org.acme.Model.ModelLoginFuncionario;
+import org.acme.Model.ModelLoginPaciente;
 import org.acme.Repository.Paciente.RepositoryContaPaciente;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @ApplicationScoped
 public class ServiceLoginPaciente {
@@ -23,5 +28,16 @@ public class ServiceLoginPaciente {
             throw new IllegalArgumentException("Senha inválida");
         }
         return true;
+    }
+
+    public boolean validacaoLoginPaciente(DTOContaPaciente conta) throws SQLException {
+        List<DTOContaPaciente> l = repositoryContaPaciente.listarLogins();
+
+        for (DTOContaPaciente contas:l){
+            if (contas.getUsuario().equals(conta.getUsuario()) && contas.getSenha().equals(conta.getSenha())){
+                return true;
+            }
+        }
+        return false;
     }
 }

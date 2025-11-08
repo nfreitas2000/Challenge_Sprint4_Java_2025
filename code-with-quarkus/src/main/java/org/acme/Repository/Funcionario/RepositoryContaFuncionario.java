@@ -2,7 +2,9 @@ package org.acme.Repository.Funcionario;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.acme.Model.DTOs.Funcionarios.DTOContaFuncionario;
 import org.acme.Model.DTOs.Funcionarios.DTOLoginFuncionario;
+import org.acme.Model.DTOs.Pacientes.DTOContaPaciente;
 import org.acme.Model.ModelFuncionario;
 import org.acme.Model.ModelLoginFuncionario;
 import org.acme.Model.ModelLoginPaciente;
@@ -56,6 +58,21 @@ public class RepositoryContaFuncionario {
                     }
                 }
 
+            }
+            return listaLoginFuncionarios;
+        }
+    }
+
+    public List<DTOContaFuncionario> listarLogins() throws SQLException {
+        String sql ="Select * from T_AX_LOGIN_DASHTECH";
+        try(
+                Connection con = dataSource.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql)
+        ){
+            ResultSet rs = ps.executeQuery();
+            List<DTOContaFuncionario> listaLoginFuncionarios = new ArrayList<>();
+            while(rs.next()){
+                listaLoginFuncionarios.add(new DTOContaFuncionario(rs.getString(2), rs.getString(3)));
             }
             return listaLoginFuncionarios;
         }

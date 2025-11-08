@@ -27,11 +27,11 @@ public class ResourceCadastro {
             return Response.status(Response.Status.CREATED)
                     .entity("Criado com Sucesso").build();
 
-        } catch (SQLException e) {//erro de conexão com a base
+        } catch (SQLException e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("Erro com a base de dados" + e).build();
         }
-        catch (IllegalArgumentException e) { //erro de dados na validação
+        catch (IllegalArgumentException e) {
             return Response.status(422).entity(e.getMessage()).build();
         }
     }

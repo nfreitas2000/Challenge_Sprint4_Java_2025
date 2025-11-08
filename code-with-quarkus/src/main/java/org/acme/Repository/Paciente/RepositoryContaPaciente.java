@@ -2,6 +2,7 @@ package org.acme.Repository.Paciente;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.acme.Model.DTOs.Pacientes.DTOContaPaciente;
 import org.acme.Model.DTOs.Pacientes.DTOLoginPaciente;
 import org.acme.Model.ModelLoginPaciente;
 import org.acme.Model.ModelPaciente;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @ApplicationScoped
 public class RepositoryContaPaciente {
+
     @Inject
     DataSource dataSource;
 
@@ -33,9 +35,11 @@ public class RepositoryContaPaciente {
     }
 
     public List<ModelLoginPaciente> listar() throws SQLException {
-        String sql ="Select * from T_HCFMUSP_LOGIN_PACIENTE Order by ID";
-        try(Connection con = dataSource.getConnection();
-            PreparedStatement ps = con.prepareStatement(sql) ){
+        String sql ="Select * from T_HCFMUSP_LOGIN_PACIENTE Order by id_login_paciente";
+        try(
+                Connection con = dataSource.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql)
+        ){
             ResultSet rs = ps.executeQuery();
             List<ModelLoginPaciente> listaLoginPacientes = new ArrayList<>();
             List<ModelPaciente> listaPacientes = new RepositoryPaciente().listar();
@@ -53,6 +57,21 @@ public class RepositoryContaPaciente {
                     }
                 }
 
+            }
+            return listaLoginPacientes;
+        }
+    }
+
+    public List<DTOContaPaciente> listarLogins() throws SQLException {
+        String sql ="Select * from T_HCFMUSP_LOGIN_PACIENTE";
+        try(
+                Connection con = dataSource.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql)
+        ){
+            ResultSet rs = ps.executeQuery();
+            List<DTOContaPaciente> listaLoginPacientes = new ArrayList<>();
+            while(rs.next()){
+                listaLoginPacientes.add(new DTOContaPaciente(rs.getString(2), rs.getString(3)));
             }
             return listaLoginPacientes;
         }
