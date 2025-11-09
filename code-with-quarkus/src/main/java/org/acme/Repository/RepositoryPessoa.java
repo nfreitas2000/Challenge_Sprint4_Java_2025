@@ -21,7 +21,7 @@ public class RepositoryPessoa {
     DataSource dataSource;
 
     public void inserirPessoa (DTOPessoa pessoa) throws SQLException{
-        String sql = "insert into T_HCFMUSP_PESSOA(nm_pessoa, cpf, rg, dt_nascimento, sx_pessoa, estado_civil, escolaridade) values (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into T_HCFMUSP_PESSOA(nm_pessoa, cpf, rg, dt_nascimento, sx_pessoa, estado_civil, escolaridade) values (?, ?, ?, TO_DATE(?, 'DD/MM/YYYY'), ?, ?, ?)";
         try(Connection con = dataSource.getConnection();
             PreparedStatement ps = con.prepareStatement(sql))
         {
