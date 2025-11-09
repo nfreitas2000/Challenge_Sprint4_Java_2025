@@ -14,7 +14,7 @@ public class CorsFilter implements ContainerResponseFilter {
             throws IOException {
 
         responseContext.getHeaders().add(
-                "Access-Control-Allow-Origin", "*"
+                "Access-Control-Allow-Origin", "https://sprint4-three.vercel.app"
         );
         responseContext.getHeaders().add(
                 "Access-Control-Allow-Credentials", "true"
@@ -27,7 +27,7 @@ public class CorsFilter implements ContainerResponseFilter {
                 "Access-Control-Allow-Methods",
                 //"GET, POST, PUT, DELETE, OPTIONS, HEAD"
                 //"GET, DELETE, OPTIONS, HEAD"
-                "GET, DELETE,POST, OPTIONS, HEAD"
+                "GET, DELETE, POST, OPTIONS, HEAD"
         );
         responseContext.getHeaders().add(
                 "Access-Control-Max-Age", "86400"
