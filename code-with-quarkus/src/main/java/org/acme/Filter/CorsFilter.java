@@ -14,7 +14,7 @@ public class CorsFilter implements ContainerResponseFilter {
             throws IOException {
 
         responseContext.getHeaders().add(
-                "Access-Control-Allow-Origin", "https://sprint4front-ten.vercel.app"
+                "Access-Control-Allow-Origin", "https://axcesstech.vercel.app"
         );
         responseContext.getHeaders().add(
                 "Access-Control-Allow-Credentials", "true"
