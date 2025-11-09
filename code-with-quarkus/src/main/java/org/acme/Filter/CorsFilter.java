@@ -14,7 +14,7 @@ public class CorsFilter implements ContainerResponseFilter {
             throws IOException {
 
         responseContext.getHeaders().add(
-                "Access-Control-Allow-Origin", "https://challenge-sprint4-java-2025.onrender.com"
+                "Access-Control-Allow-Origin", "*"
         );
         responseContext.getHeaders().add(
                 "Access-Control-Allow-Credentials", "true"
