@@ -38,7 +38,7 @@ public class RepositoryContaFuncionario {
     }
 
     public List<ModelLoginFuncionario> listar() throws SQLException {
-        String sql ="Select * from T_AX_LOGIN_DASHTECH Order by ID";
+        String sql ="Select * from T_AX_LOGIN_DASHTECH";
         try(Connection con = dataSource.getConnection();
             PreparedStatement ps = con.prepareStatement(sql) ){
             ResultSet rs = ps.executeQuery();
