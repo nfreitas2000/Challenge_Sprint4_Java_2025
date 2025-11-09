@@ -13,24 +13,29 @@ public class CorsFilter implements ContainerResponseFilter {
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
             throws IOException {
 
-        responseContext.getHeaders().add("Access-Control-Allow-Origin", "https://challenge-sprint4-java-2025.onrender.com");
-        responseContext.getHeaders().add("Access-Control-Allow-Credentials", "true");
+        responseContext.getHeaders().add(
+                "Access-Control-Allow-Origin", "https://challenge-sprint4-java-2025.onrender.com"
+        );
+        responseContext.getHeaders().add(
+                "Access-Control-Allow-Credentials", "true"
+        );
         responseContext.getHeaders().add(
                 "Access-Control-Allow-Headers",
-                "Origin, Content-Type, Accept, Authorization, X-Requested-With"
+                "origin, content-type, accept, authorization, x-requested-with"
         );
         responseContext.getHeaders().add(
                 "Access-Control-Allow-Methods",
-                "GET, POST, PUT, DELETE, OPTIONS, HEAD"
+                //"GET, POST, PUT, DELETE, OPTIONS, HEAD"
+                //"GET, DELETE, OPTIONS, HEAD"
+                "GET, DELETE,POST, OPTIONS, HEAD"
         );
-        responseContext.getHeaders().add("Access-Control-Max-Age", "86400");
+        responseContext.getHeaders().add(
+                "Access-Control-Max-Age", "86400"
+        );
 
-        if ("OPTIONS".equalsIgnoreCase(requestContext.getMethod())) {
+        // Handle OPTIONS method
+        if ("OPTIONS".equals(requestContext.getMethod())) {
             responseContext.setStatus(200);
-            responseContext.getHeaders().add("Access-Control-Allow-Origin", "https://challenge-sprint4-java-2025.onrender.com");
-            responseContext.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            responseContext.getHeaders().add("Access-Control-Allow-Headers", "origin, content-type, accept, authorization, x-requested-with");
         }
-
     }
 }
